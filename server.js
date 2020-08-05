@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send(database.users);
+  res.send([]);
 });
 
 app.post("/signin", (req, res) => {
@@ -43,6 +43,9 @@ app.put("/image", (req, res) => {
   image.handleImage(req, res, db);
 });
 
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res);
+});
 app.listen(3000, () => {
   console.log("App is running");
 });
